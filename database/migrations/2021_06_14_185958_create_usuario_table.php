@@ -17,7 +17,6 @@ class CreateUsuarioTable extends Migration
             $table->id();
             $table->integer('ci');
             $table->string('nombre');
-            $table->string('tipo');
             $table->timestamps();
             $table->foreignId('rol_id')->constrained('rol');
         });

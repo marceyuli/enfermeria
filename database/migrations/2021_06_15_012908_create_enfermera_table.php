@@ -15,7 +15,7 @@ class CreateEnfermeraTable extends Migration
     {
         Schema::create('enfermera', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('usuario_ci')->constrained('usuario');
+            $table->foreignId('usuario_id')->constrained('usuario');
             $table->string('especialidad');
             $table->timestamps();
         });

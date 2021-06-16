@@ -15,7 +15,8 @@ class CreateUbicacionTable extends Migration
     {
         Schema::create('ubicacion', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_usuario_ci')->constrained('cliente');
+            $table->string('coordenadas');
+            $table->foreignId('cliente_usuario_id')->constrained('cliente');
             $table->timestamps();
         });
     }

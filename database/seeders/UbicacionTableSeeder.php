@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MetodopagoTableSeeder extends Seeder
+class UbicacionTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,13 +13,11 @@ class MetodopagoTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    
     {
-        DB::table('metodopago')->delete();
-        for($i=1;$i<11;$i++){
-            DB::table('metodopago')->insert([
-                'nombre'=>'metodopago',
+        DB::table('ubicacion')->delete();
+            DB::table('ubicacion')->insert([
+               'coordenadas'=>'coord',
+               'cliente_usuario_id'=>'1'
             ]);
-        }
     }
 }

@@ -17,9 +17,9 @@ class ServicioTableSeeder extends Seeder
       //  DB::table('servicio')->truncate();
         for($i=1;$i<11;$i++){
             DB::table('servicio')->insert([
-                'nombre'=>"servicio {$i}",
-                'descripcion'=>"esta es la descripcion {$i}",
-                'costo'=>"costo {$i}"
+                'nombre'=>'servicio'.$i,
+                'descripcion'=>'esta es la descripcion'.$i,
+                'costo'=>'costo '.$i
             ]);
         }
     }
