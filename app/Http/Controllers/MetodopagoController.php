@@ -47,7 +47,7 @@ class MetodopagoController extends Controller
     public function show($id)
     {
         $metodopago = Metodopago::find($id);
-            if($id){
+            if($metodopago){
                 return response()->json($metodopago,200);
             }
             return response()->json(["message"=>"Metodo de pago no encontrado"],404);

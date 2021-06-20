@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
+use App\Models\Enfermera;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return response()->json(Usuario::all(),200);
+        return response()->json(Usuario::all(), 200);
     }
 
     /**
@@ -24,7 +26,6 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +36,27 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ci = $request["ci"];
+        $nombre = $request["nombre"];
+        $rol_id = $request["rol_id"];
+        $usuario = new Usuario();
+        $usuario->ci = $ci;
+        $usuario->nombre = $nombre;
+        $usuario->rol_id = $rol_id;
+        $usuario->save();
+        if ($rol_id == 2) {
+            $enfermera = new Enfermera();
+            $enfermera->especialidad = $request["especialidad"];
+            $enfermera->usuario_id = $usuario->id;
+            $enfermera->save();
+        }
+        if ($rol_id == 3) {
+            $cliente = new Cliente();
+            $cliente->telefono = $request["telefono"];
+            $cliente->usuario_id = $usuario->id;
+            $cliente->save();
+        }
+        return response()->json(["message" => "usuario creado"], 201);
     }
 
     /**
@@ -46,11 +67,11 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-       $usuario = Usuario::find($id);
-       if($usuario){
-        return response()->json($usuario,200); 
-    }
-    return response()->json(["message"=>"usuario no existe"],404);
+        $usuario = Usuario::find($id);
+        if ($usuario) {
+            return response()->json($usuario, 200);
+        }
+        return response()->json(["message" => "usuario no existe"], 404);
     }
 
     /**
