@@ -36,7 +36,21 @@ class NotaventaservicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cita_id = $request["cita_id"];
+        $nota_venta_id = $request["nota_venta_id"];
+        $servicio_id=$request["servicio_id"];
+        $descripcion=$request["descripcion"];
+        $cantidad=$request["cantidad"];
+        $costo=$request["costo"];
+        $notaventaservicio = new Notaventaservicio();
+        $notaventaservicio->cita_id=$cita_id;
+        $notaventaservicio->nota_venta_id=$nota_venta_id;
+        $notaventaservicio->servicio_id=$servicio_id;
+        $notaventaservicio->descripcion=$descripcion;
+        $notaventaservicio->cantidad=$cantidad;
+        $notaventaservicio->costo=$costo;
+        $notaventaservicio->save();
+        return response()->json(["message"=>"OK"],201);
     }
 
     /**

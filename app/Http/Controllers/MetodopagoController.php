@@ -35,7 +35,11 @@ class MetodopagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nombre = $request["nombre"];
+        $metodopago = new Metodopago();
+        $metodopago->nombre = $nombre;
+        $metodopago->save();
+        return response()->json(["message"=>"metodo pago añadido"],201);
     }
 
     /**

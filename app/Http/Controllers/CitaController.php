@@ -35,7 +35,15 @@ class CitaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fecha = $request["fecha"];
+        $hora = $request["hora"]; 
+        $duracion = $request["duracion"];
+        $cita = new Cita();
+        $cita->fecha = $fecha;
+        $cita->hora=$hora;
+        $cita->duracion=$duracion;
+        $cita->save();
+        return response()->json(["message"=>"cita creada"],201);
     }
 
     /**

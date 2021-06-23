@@ -35,7 +35,15 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nit = $request["nit"];
+        $nombre = $request["nombre"];
+        $nota_venta_id = $request["nota_venta_id"];
+        $factura = new Factura();
+        $factura->nit=$nit;
+        $factura->nombre=$nombre;
+        $factura->nota_venta_id=$nota_venta_id;
+        $factura->save();
+        return response()->json(["message"=>"OK"],200);
     }
 
     /**

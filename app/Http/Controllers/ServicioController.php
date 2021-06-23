@@ -36,7 +36,15 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nombre = $request["nombre"];
+        $descripcion = $request["descripcion"];
+        $costo = $request["costo"];
+        $servicio = new Servicio();
+        $servicio->nombre = $nombre;
+        $servicio->descripcion = $descripcion;
+        $servicio->costo = $costo;
+        $servicio->save();
+        return response()->json(["message"=>"Servicio creado"],201);
     }
 
     /**

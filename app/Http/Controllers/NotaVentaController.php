@@ -35,7 +35,19 @@ class NotaVentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $enfermera_usuario_id=$request["enfermera_usuario_id"];
+        $cliente_usuario_id=$request["cliente_usuario_id"];
+        $ubicacion_id=$request["ubicacion_id"];
+        $metodopago_id = $request["metodopago_id"];
+        $total = $request["total"];
+        $nota_venta = new NotaVenta();
+        $nota_venta->enfermera_usuario_id=$enfermera_usuario_id;
+        $nota_venta->cliente_usuario_id=$cliente_usuario_id;
+        $nota_venta->ubicacion_id=$ubicacion_id;
+        $nota_venta->metodopago_id = $metodopago_id;
+        $nota_venta->total=$total;
+        $nota_venta->save();
+        return response()->json(["message"=>"Nota venta creada"],201);
     }
 
     /**

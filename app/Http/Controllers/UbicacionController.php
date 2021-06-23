@@ -35,7 +35,13 @@ class UbicacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $coordenadas = $request["coordenadas"];
+        $cliente_usuario_id = $request["cliente_usuario_id"];
+        $ubicacion = new Ubicacion();
+        $ubicacion->coordenadas = $coordenadas;
+        $ubicacion->cliente_usuario_id = $cliente_usuario_id;
+        $ubicacion->save();
+        return response()->json(["message"=>"ubicacion guardada"],201);
     }
 
     /**
