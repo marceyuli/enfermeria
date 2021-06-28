@@ -33,6 +33,7 @@ Route::get('rol/{id}',[RolController::class,'show']);
 Route::get('usuario',[UsuarioController::class,'index']);
 Route::get('usuario/{id}',[UsuarioController::class,'show']);
 Route::post('usuario', [UsuarioController::class,'store']);
+Route::post('login',[UsuarioController::class,'login']);
 Route::get('servicio',[ServicioController::class,'index']);
 Route::get('servicio/{id}',[ServicioController::class,'show']);
 Route::post('servicio',[ServicioController::class,'store']);

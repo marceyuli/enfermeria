@@ -11,7 +11,7 @@ class EnfermeraTableSeeder extends Seeder
     {
         DB::table('enfermera')->delete();
         DB::table('enfermera')->insert([
-            'usuario_id'=>'2',
+            'user_id'=>'2',
             'especialidad'=>'vacunacion en el culo xd'
         ]);
     }

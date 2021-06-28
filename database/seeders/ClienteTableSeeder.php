@@ -10,7 +10,7 @@ class ClienteTableSeeder extends Seeder
     {
         DB::table('cliente')->delete();
         DB::table('cliente')->insert([
-            'usuario_id'=>'3',
+            'user_id'=>'3',
             'telefono'=>'78559067'
         ]);
     }

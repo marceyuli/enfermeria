@@ -15,8 +15,8 @@ class CreateNotaVentaTable extends Migration
     {
         Schema::create('nota_venta', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('enfermera_usuario_id')->constrained('enfermera');
-            $table->foreignId('cliente_usuario_id')->constrained('cliente');
+            $table->foreignId('enfermera_user_id')->constrained('enfermera');
+            $table->foreignId('cliente_user_id')->constrained('cliente');
             $table->foreignId('ubicacion_id')->constrained('ubicacion');
             $table->foreignId('metodopago_id')->constrained('metodopago');
             $table->integer('total');

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\Enfermera;
 use App\Models\Usuario;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
@@ -39,10 +41,12 @@ class UsuarioController extends Controller
         $ci = $request["ci"];
         $nombre = $request["nombre"];
         $rol_id = $request["rol_id"];
+        $username = $request["username"];
         $usuario = new Usuario();
         $usuario->ci = $ci;
         $usuario->nombre = $nombre;
         $usuario->rol_id = $rol_id;
+        $usuario->username = $username;
         $usuario->save();
         if ($rol_id == 2) {
             $enfermera = new Enfermera();
@@ -57,6 +61,23 @@ class UsuarioController extends Controller
             $cliente->save();
         }
         return response()->json(["message" => "usuario creado"], 201);
+    }
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (!Auth::attempt(['username' => $request['username'], 'password' => $request['password']])) {
+            // Authentication was successful...
+            return response()->json(
+                "Contraseña incorrecta",200
+            );
+        }
+        return response()->json(
+            "login ok",200
+        );
     }
 
     /**

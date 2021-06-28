@@ -16,8 +16,8 @@ class NotaventaTableSeeder extends Seeder
     {
         DB::table('nota_venta')->delete();
         DB::table('nota_venta')->insert([
-            'enfermera_usuario_id'=>'1',
-            'cliente_usuario_id'=>'1',
+            'enfermera_user_id'=>'1',
+            'cliente_user_id'=>'1',
             'ubicacion_id'=>'1',
             'metodopago_id'=>'1',
             'total'=>800

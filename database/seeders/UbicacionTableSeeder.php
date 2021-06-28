@@ -17,7 +17,7 @@ class UbicacionTableSeeder extends Seeder
         DB::table('ubicacion')->delete();
             DB::table('ubicacion')->insert([
                'coordenadas'=>'coord',
-               'cliente_usuario_id'=>'1'
+               'cliente_user_id'=>'1'
             ]);
     }
 }
