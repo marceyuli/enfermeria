@@ -107,7 +107,8 @@ class ServicioTableSeeder extends Seeder
             DB::table('servicio')->insert([
                 'nombre' => $servicio['Nombre'],
                 'costo' => $servicio['Costo'],
-                'descripcion' => $servicio['Descripcion']
+                'descripcion' => $servicio['Descripcion'],
+                'url-imagen' => 'https://image.freepik.com/foto-gratis/empresaria-apreton-manos-hombre-negocios-que-muestra-respeto-opinion-primer-manos-que-sacuden_1163-4679.jpg'
             ]);
         }
     }

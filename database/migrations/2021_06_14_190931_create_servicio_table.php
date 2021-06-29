@@ -18,6 +18,7 @@ class CreateServicioTable extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->string('costo');
+            $table->string('url-imagen');
             $table->timestamps();
         });
     }
