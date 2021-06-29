@@ -108,7 +108,7 @@ class ServicioTableSeeder extends Seeder
                 'nombre' => $servicio['Nombre'],
                 'costo' => $servicio['Costo'],
                 'descripcion' => $servicio['Descripcion'],
-                'url-imagen' => 'https://image.freepik.com/foto-gratis/empresaria-apreton-manos-hombre-negocios-que-muestra-respeto-opinion-primer-manos-que-sacuden_1163-4679.jpg'
+                'url_imagen' => 'https://image.freepik.com/foto-gratis/empresaria-apreton-manos-hombre-negocios-que-muestra-respeto-opinion-primer-manos-que-sacuden_1163-4679.jpg'
             ]);
         }
     }
